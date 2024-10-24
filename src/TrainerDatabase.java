@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
 public class TrainerDatabase {
 
@@ -52,12 +53,30 @@ public class TrainerDatabase {
         }
     }
     public void readFromFile() {
-        //read from file
-        //create record from
-        //insertRecord(create record from);
+        try {
+            File file = new File (fileName);
+            Scanner fileScanner = new Scanner(file);
+            while (fileScanner.hasNextLine()) {
+                insertRecord(createRecordFrom(fileScanner.nextLine()));;
+            }
+            fileScanner.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
     public void saveToFile() {
-        // write to file
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            for (int i = 0; i < records.size(); i ++) {
+                fileWriter.write(records.get(i).lineRepresentation());
+            }
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
 }
