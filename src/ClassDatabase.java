@@ -10,20 +10,23 @@ public class ClassDatabase {
     private ArrayList<Class> records;
     private final String fileName;
 
+    //constructor
     public ClassDatabase() {
         this.fileName = "Classes.txt";
         records = new ArrayList<Class>();
     }
 
+    //create a record from a string line in the file
     public Class createRecordFrom (String line) {
         String[] parts = line.split(",");
         return new Class(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
     }
 
     public ArrayList<Class> returnAllRecords() {
-        return records;
+        return records; //return all records
     }
 
+    //check if a record exists
     public boolean contains (String key) {
         for (Class record : records) {
             if (record.getSearchKey().equals(key)) {
@@ -33,6 +36,7 @@ public class ClassDatabase {
         return false;
     }
 
+    //fetches a record for a given key
     public Class getRecord(String key) {
         for (Class record : records) {
             if (record.getSearchKey().equals(key)) {
@@ -42,8 +46,9 @@ public class ClassDatabase {
         return null;
     }
 
+    //insert a record
     public void insertRecord(Class record) {
-        if(!contains(record.getSearchKey())) {
+        if(!contains(record.getSearchKey())) { //check if the record already exists
             records.add(record);
         }
         else {
@@ -51,9 +56,10 @@ public class ClassDatabase {
         }
     }
 
+    //delete a record
     public void deleteRecord(String key) {
         Class record = getRecord(key);
-        if (record != null) {
+        if (record != null) { //check if the record exists
             records.remove(record);
         }
     }
@@ -77,7 +83,7 @@ public class ClassDatabase {
         try {
             FileWriter fileWriter = new FileWriter(fileName);
             for (int i = 0; i < records.size(); i ++) {
-                fileWriter.write(records.get(i).lineRepresentation() + "\n");
+                fileWriter.write(records.get(i).lineRepresentation() + "\n");//write each record to the file
             }
             fileWriter.close();
         } catch (IOException e) {
