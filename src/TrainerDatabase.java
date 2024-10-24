@@ -19,6 +19,15 @@ public class TrainerDatabase {
         return records;
     }
 
+    public boolean contains (String key) {
+        for (Trainer record : records) {
+            if (record.getSearchKey().equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Trainer getRecord(String key) {
         for (Trainer record : records) {
             if (record.getSearchKey().equals(key)) {
@@ -29,10 +38,12 @@ public class TrainerDatabase {
     }
 
     public void insertRecord(Trainer record) {
-        if (getRecord(record.getSearchKey()) == null) {
+        if(!contains(record.getSearchKey())) {
             records.add(record);
         }
-        else System.out.println("Trainer already exists");
+        else {
+            System.out.println("Trainer already exists");
+        }
     }
     public void deleteRecord(String key) {
         Trainer record = getRecord(key);

@@ -1,3 +1,5 @@
+//this is essentially the GUI we will use
+
 public class AdminRole {
     private TrainerDatabase database;
 
@@ -11,9 +13,7 @@ public class AdminRole {
     }
 
     public void removeTrainer(String trainerId) {
-
         database.deleteRecord(trainerId);
-
     }
 
     public void logout(){
