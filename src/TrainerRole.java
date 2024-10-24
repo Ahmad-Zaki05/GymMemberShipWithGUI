@@ -14,6 +14,9 @@ public class TrainerRole {
         memberDatabase = new MemberDatabase();
         classDatabase = new ClassDatabase();
         registrationDatabase = new MemberClassRegistrationDatabase();
+        memberDatabase.readFromFile();
+        classDatabase.readFromFile();
+        registrationDatabase.readFromFile();
     }
 
     public void addMember(String memberId, String name, String membershipType, String email, String phoneNumber, String status) {

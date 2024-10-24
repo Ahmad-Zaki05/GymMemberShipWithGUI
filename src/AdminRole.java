@@ -5,6 +5,7 @@ public class AdminRole {
 
     public AdminRole() {
         database = new TrainerDatabase();
+        database.readFromFile();
     }
 
     //adds a trainer to the database
