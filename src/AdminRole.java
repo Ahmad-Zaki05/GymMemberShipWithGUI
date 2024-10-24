@@ -3,8 +3,7 @@ public class AdminRole {
 
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber) {
         Trainer trainer = new Trainer(trainerId, name, email, specialty, phoneNumber);
-
-
+        database.insertRecord(trainer);
     }
 
     public TrainerDatabase getListOfTrainers() {
@@ -17,5 +16,8 @@ public class AdminRole {
 
     }
 
+    public void logout(){
+        database.saveToFile();
+    }
 
 }
