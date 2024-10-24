@@ -29,7 +29,10 @@ public class TrainerDatabase {
     }
 
     public void insertRecord(Trainer record) {
-        records.add(record);
+        if (getRecord(record.getSearchKey()) == null) {
+            records.add(record);
+        }
+        else System.out.println("Trainer already exists");
     }
     public void deleteRecord(String key) {
         Trainer record = getRecord(key);
