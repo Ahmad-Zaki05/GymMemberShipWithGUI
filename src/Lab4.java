@@ -57,7 +57,7 @@ public class Lab4 {
 
     private static void handleTrainerMode(Scanner scanner, TrainerRole trainerRole) {
         while (true) {
-            System.out.println("Trainer Menu: (1. Add Member, 2. Add Class, 3. Register Member, 4. Cancel Registration, 5. List Registrations, 6. Logout)");
+            System.out.println("Trainer Menu: (1. Add Member, 2. Add Class, 3. Register Member, 4. Cancel Registration, 5. List Registrations, 6. List Members, 7. List Classes ,8. Logout)");
             String action = scanner.nextLine();
 
             if (action.equals("1")) {
@@ -78,10 +78,10 @@ public class Lab4 {
                 int maxParticipants = Integer.parseInt(scanner.nextLine());
                 trainerRole.addClass(classId, className, trainerId, duration, maxParticipants);
             } else if (action.equals("3")) {
-                System.out.println("Enter registration details (memberId, classId, registrationDate (yyyy-mm-dd)):");
+                System.out.println("Enter registration details (memberId, classId)");
                 String memberId = scanner.nextLine();
                 String classId = scanner.nextLine();
-                LocalDate registrationDate = LocalDate.parse(scanner.nextLine());
+                LocalDate registrationDate = LocalDate.now();
                 trainerRole.registerMemberForClass(memberId, classId, registrationDate);
             } else if (action.equals("4")) {
                 System.out.println("Enter registration details (memberId, classId):");
@@ -89,8 +89,22 @@ public class Lab4 {
                 String classId = scanner.nextLine();
                 trainerRole.cancelRegistration(memberId, classId);
             } else if (action.equals("5")) {
-                trainerRole.getListOfRegistrations();
-            } else if (action.equals("6")) {
+                for(MemberClassRegistration registration : trainerRole.getListOfRegistrations().returnAllRecords() ) {
+                    System.out.println(registration.lineRepresentation());
+                }
+            }
+            else if (action.equals("6")) {
+                for(Member member : trainerRole.getListOfMembers().returnAllRecords() ) {
+                    System.out.println(member.lineRepresentation());
+                }
+            }
+
+            else if (action.equals("7")) {
+                for (Class class1 : trainerRole.getListOfClasses().returnAllRecords()) {
+                    System.out.println(class1.lineRepresentation());
+                }
+            }
+            else if (action.equals("8")) {
                 trainerRole.logout();
                 break;
             } else {

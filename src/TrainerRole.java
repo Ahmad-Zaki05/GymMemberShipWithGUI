@@ -58,8 +58,8 @@ public class TrainerRole {
         classDatabase.getRecord(classId).setAvailableSeats(classDatabase.getRecord(classId).getAvailableSeats() + 1);
     }
 
-    public void getListOfRegistrations() {
-        registrationDatabase.returnAllRecords();
+    public MemberClassRegistrationDatabase getListOfRegistrations() {
+        return registrationDatabase;
     }
 
     public void logout() {
