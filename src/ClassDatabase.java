@@ -1,4 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ClassDatabase {
 
@@ -54,10 +59,30 @@ public class ClassDatabase {
     }
 
     public void readFromFile() {
-        // read from file
+        try {
+            File file = new File (fileName);
+            Scanner fileScanner = new Scanner(file);
+            while (fileScanner.hasNextLine()) {
+                insertRecord(createRecordFrom(fileScanner.nextLine()));;
+            }
+            fileScanner.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     public void saveToFile() {
-        // write to file
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            for (int i = 0; i < records.size(); i ++) {
+                fileWriter.write(records.get(i).lineRepresentation() + "\n");
+            }
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
