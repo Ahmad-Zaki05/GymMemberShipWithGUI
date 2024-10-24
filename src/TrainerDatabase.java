@@ -52,7 +52,9 @@ public class TrainerDatabase {
         }
     }
     public void readFromFile() {
-        // read from file
+        //read from file
+        //create record from
+        //insertRecord(create record from);
     }
     public void saveToFile() {
         // write to file
