@@ -70,7 +70,7 @@ public class TrainerDatabase {
         try {
             FileWriter fileWriter = new FileWriter(fileName);
             for (int i = 0; i < records.size(); i ++) {
-                fileWriter.write(records.get(i).lineRepresentation());
+                fileWriter.write(records.get(i).lineRepresentation() + "\n");
             }
             fileWriter.close();
         } catch (IOException e) {
