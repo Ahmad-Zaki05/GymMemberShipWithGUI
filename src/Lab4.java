@@ -16,7 +16,7 @@ public class Lab4 {
             } else if (mode.equals("2")) {
                 handleTrainerMode(scanner, trainerRole);
             } else if (mode.equals("3")) {
-                System.out.println("Exiting...");
+                System.out.println("Exiting program...");
                 break;
             } else {
                 System.out.println("Invalid option. Please try again.");
