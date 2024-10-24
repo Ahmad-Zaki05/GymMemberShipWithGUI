@@ -27,88 +27,106 @@ public class Lab4 {
     }
 
     private static void handleAdminMode(Scanner scanner, AdminRole adminRole) {
+        label:
         while (true) {
             System.out.println("Admin Menu: (1. Add Trainer, 2. Remove Trainer, 3. List Trainers, 4. Logout)");
             String action = scanner.nextLine();
-            if (action.equals("1")) {
-                System.out.println("Enter trainer details (id, name, email, specialty, phone):");
-                String trainerId = scanner.nextLine();
-                String name = scanner.nextLine();
-                String email = scanner.nextLine();
-                String specialty = scanner.nextLine();
-                String phone = scanner.nextLine();
-                adminRole.addTrainer(trainerId, name, email, specialty, phone);
-            } else if (action.equals("2")) {
-                System.out.println("Enter trainer ID to remove:");
-                String trainerId = scanner.nextLine();
-                adminRole.removeTrainer(trainerId);
-            } else if (action.equals("3")) {
-                for (Trainer trainer : adminRole.getListOfTrainers().returnAllRecords()) {
-                    System.out.println(trainer.lineRepresentation());
+            switch (action) {
+                case "1": {
+                    System.out.println("Enter trainer details (id, name, email, specialty, phone):");
+                    String trainerId = scanner.nextLine();
+                    String name = scanner.nextLine();
+                    String email = scanner.nextLine();
+                    String specialty = scanner.nextLine();
+                    String phone = scanner.nextLine();
+                    adminRole.addTrainer(trainerId, name, email, specialty, phone);
+                    break;
                 }
-            } else if (action.equals("4")) {
-                adminRole.logout();
-                break;
-            } else {
-                System.out.println("Invalid option. Please try again.");
+                case "2": {
+                    System.out.println("Enter trainer ID to remove:");
+                    String trainerId = scanner.nextLine();
+                    adminRole.removeTrainer(trainerId);
+                    break;
+                }
+                case "3":
+                    for (Trainer trainer : adminRole.getListOfTrainers().returnAllRecords()) {
+                        System.out.println(trainer.lineRepresentation());
+                    }
+                    break;
+                case "4":
+                    adminRole.logout();
+                    break label;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+                    break;
             }
         }
     }
 
     private static void handleTrainerMode(Scanner scanner, TrainerRole trainerRole) {
+        label:
         while (true) {
             System.out.println("Trainer Menu: (1. Add Member, 2. Add Class, 3. Register Member, 4. Cancel Registration, 5. List Registrations, 6. List Members, 7. List Classes ,8. Logout)");
             String action = scanner.nextLine();
 
-            if (action.equals("1")) {
-                System.out.println("Enter member details (id, name, membershipType, email, phone, status):");
-                String memberId = scanner.nextLine();
-                String name = scanner.nextLine();
-                String membershipType = scanner.nextLine();
-                String email = scanner.nextLine();
-                String phone = scanner.nextLine();
-                String status = scanner.nextLine();
-                trainerRole.addMember(memberId, name, membershipType, email, phone, status);
-            } else if (action.equals("2")) {
-                System.out.println("Enter class details (id, name, trainerId, duration, maxParticipants):");
-                String classId = scanner.nextLine();
-                String className = scanner.nextLine();
-                String trainerId = scanner.nextLine();
-                int duration = Integer.parseInt(scanner.nextLine());
-                int maxParticipants = Integer.parseInt(scanner.nextLine());
-                trainerRole.addClass(classId, className, trainerId, duration, maxParticipants);
-            } else if (action.equals("3")) {
-                System.out.println("Enter registration details (memberId, classId)");
-                String memberId = scanner.nextLine();
-                String classId = scanner.nextLine();
-                LocalDate registrationDate = LocalDate.now();
-                trainerRole.registerMemberForClass(memberId, classId, registrationDate);
-            } else if (action.equals("4")) {
-                System.out.println("Enter registration details (memberId, classId):");
-                String memberId = scanner.nextLine();
-                String classId = scanner.nextLine();
-                trainerRole.cancelRegistration(memberId, classId);
-            } else if (action.equals("5")) {
-                for(MemberClassRegistration registration : trainerRole.getListOfRegistrations().returnAllRecords() ) {
-                    System.out.println(registration.lineRepresentation());
+            switch (action) {
+                case "1": {
+                    System.out.println("Enter member details (id, name, membershipType, email, phone, status):");
+                    String memberId = scanner.nextLine();
+                    String name = scanner.nextLine();
+                    String membershipType = scanner.nextLine();
+                    String email = scanner.nextLine();
+                    String phone = scanner.nextLine();
+                    String status = scanner.nextLine();
+                    trainerRole.addMember(memberId, name, membershipType, email, phone, status);
+                    break;
                 }
-            }
-            else if (action.equals("6")) {
-                for(Member member : trainerRole.getListOfMembers().returnAllRecords() ) {
-                    System.out.println(member.lineRepresentation());
+                case "2": {
+                    System.out.println("Enter class details (id, name, trainerId, duration, maxParticipants):");
+                    String classId = scanner.nextLine();
+                    String className = scanner.nextLine();
+                    String trainerId = scanner.nextLine();
+                    int duration = Integer.parseInt(scanner.nextLine());
+                    int maxParticipants = Integer.parseInt(scanner.nextLine());
+                    trainerRole.addClass(classId, className, trainerId, duration, maxParticipants);
+                    break;
                 }
-            }
-
-            else if (action.equals("7")) {
-                for (Class class1 : trainerRole.getListOfClasses().returnAllRecords()) {
-                    System.out.println(class1.lineRepresentation());
+                case "3": {
+                    System.out.println("Enter registration details (memberId, classId)");
+                    String memberId = scanner.nextLine();
+                    String classId = scanner.nextLine();
+                    LocalDate registrationDate = LocalDate.now();
+                    trainerRole.registerMemberForClass(memberId, classId, registrationDate);
+                    break;
                 }
-            }
-            else if (action.equals("8")) {
-                trainerRole.logout();
-                break;
-            } else {
-                System.out.println("Invalid option. Please try again.");
+                case "4": {
+                    System.out.println("Enter registration details (memberId, classId):");
+                    String memberId = scanner.nextLine();
+                    String classId = scanner.nextLine();
+                    trainerRole.cancelRegistration(memberId, classId);
+                    break;
+                }
+                case "5":
+                    for (MemberClassRegistration registration : trainerRole.getListOfRegistrations().returnAllRecords()) {
+                        System.out.println(registration.lineRepresentation());
+                    }
+                    break;
+                case "6":
+                    for (Member member : trainerRole.getListOfMembers().returnAllRecords()) {
+                        System.out.println(member.lineRepresentation());
+                    }
+                    break;
+                case "7":
+                    for (Class class1 : trainerRole.getListOfClasses().returnAllRecords()) {
+                        System.out.println(class1.lineRepresentation());
+                    }
+                    break;
+                case "8":
+                    trainerRole.logout();
+                    break label;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+                    break;
             }
         }
     }

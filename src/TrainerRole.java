@@ -38,6 +38,11 @@ public class TrainerRole {
     }
 
     public void registerMemberForClass(String memberId, String classId, LocalDate registrationDate) {
+        if(registrationDatabase.contains(memberId + classId)) {
+           registrationDatabase.getRecord(memberId + classId).setRegistrationStatus("Active");
+           return;
+        }
+
         MemberClassRegistration registration = new MemberClassRegistration(memberId, classId,"Active", registrationDate);
         registrationDatabase.insertRecord(registration);
         classDatabase.getRecord(classId).setAvailableSeats(classDatabase.getRecord(classId).getAvailableSeats() - 1);
@@ -53,8 +58,7 @@ public class TrainerRole {
             System.out.println("Cannot cancel registration");
             return;
         }
-        registration.setRegistrationStatus("Cancelled");
-        registrationDatabase.insertRecord(registration);
+        registrationDatabase.getRecord(memberId + classId).setRegistrationStatus("Cancelled");
         classDatabase.getRecord(classId).setAvailableSeats(classDatabase.getRecord(classId).getAvailableSeats() + 1);
     }
 
