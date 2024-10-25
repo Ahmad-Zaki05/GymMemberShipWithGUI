@@ -22,7 +22,6 @@ public class AdminRole {
     //removes a trainer from the database
     public void removeTrainer(String trainerId) {
         database.deleteRecord(trainerId);
-
     }
 
     //save the database to a file on logout

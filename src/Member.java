@@ -6,8 +6,8 @@ public class Member {
     private String phoneNumber;
     private String status;
 
-    public Member(String memberId, String name, String membershipType, String email, String phoneNumber, String status) {
-        this.memberId = memberId;
+    public Member(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
+        this.memberId = memberID;
         this.name = name;
         this.membershipType = membershipType;
         this.email = email;

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ClassDatabase {
 
-    private ArrayList<Class> records;
+    private static ArrayList<Class> records;
     private final String fileName;
 
     //constructor
