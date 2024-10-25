@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 public class TrainerRole {
 
-    private MemberDatabase memberDatabase;
-    private ClassDatabase classDatabase;
-    private MemberClassRegistrationDatabase registrationDatabase;
+    private static MemberDatabase memberDatabase;
+    private static ClassDatabase classDatabase;
+    private static MemberClassRegistrationDatabase registrationDatabase;
 
 
     public TrainerRole() {

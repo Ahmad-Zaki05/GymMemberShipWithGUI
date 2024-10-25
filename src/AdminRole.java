@@ -1,7 +1,7 @@
 //this is essentially the GUI we will use
 
 public class AdminRole {
-    private TrainerDatabase database;
+    private static TrainerDatabase database;
 
     public AdminRole() {
         database = new TrainerDatabase();
@@ -22,6 +22,7 @@ public class AdminRole {
     //removes a trainer from the database
     public void removeTrainer(String trainerId) {
         database.deleteRecord(trainerId);
+
     }
 
     //save the database to a file on logout
