@@ -29,6 +29,10 @@ public class TrainerRole {
     }
 
     public void addClass(String classID, String className, String trainerId, int duration, int maxParticipants) {
+        if(!TrainerDatabase.contains(trainerId)) {
+            System.out.println("Trainer does not exist");
+            return;
+        }
         Class newClass = new Class(classID, className, trainerId, duration, maxParticipants);
         classDatabase.insertRecord(newClass);
     }
@@ -38,17 +42,32 @@ public class TrainerRole {
     }
 
     public void registerMemberForClass(String memberId, String classId, LocalDate registrationDate) {
-        if(registrationDatabase.contains(memberId + classId)) {
-           registrationDatabase.getRecord(memberId + classId).setRegistrationStatus("Active");
-           return;
+        if(!memberDatabase.contains(memberId)) {
+            System.out.println("Member does not exist");
+            return;
         }
-
+        if(!classDatabase.contains(classId)) {
+            System.out.println("Class does not exist");
+            return;
+        }
+        if(classDatabase.getRecord(classId).getAvailableSeats() == 0) {
+            System.out.println("Class is full");
+            return;
+        }
         MemberClassRegistration registration = new MemberClassRegistration(memberId, classId,"Active", registrationDate);
         registrationDatabase.insertRecord(registration);
         classDatabase.getRecord(classId).setAvailableSeats(classDatabase.getRecord(classId).getAvailableSeats() - 1);
     }
 
     public void cancelRegistration(String memberId, String classId) {
+        if(!memberDatabase.contains(memberId)) {
+            System.out.println("Member does not exist");
+            return;
+        }
+        if(!classDatabase.contains(classId)) {
+            System.out.println("Class does not exist");
+            return;
+        }
         MemberClassRegistration registration = registrationDatabase.getRecord(memberId + classId);
         if(registration == null) {
             System.out.println("Registration does not exist");

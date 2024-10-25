@@ -7,19 +7,24 @@ public class Lab4 {
         AdminRole adminRole = new AdminRole();
         TrainerRole trainerRole = new TrainerRole();
 
+        label:
         while (true) {
             System.out.println("Choose operation mode\n (1) Admin\n (2) Trainer\n (3) Quit");
             String mode = scanner.nextLine();
 
-            if (mode.equals("1")) {
-                handleAdminMode(scanner, adminRole);
-            } else if (mode.equals("2")) {
-                handleTrainerMode(scanner, trainerRole);
-            } else if (mode.equals("3")) {
-                System.out.println("Exiting program...");
-                break;
-            } else {
-                System.out.println("Invalid option. Please try again.");
+            switch (mode) {
+                case "1":
+                    handleAdminMode(scanner, adminRole);
+                    break;
+                case "2":
+                    handleTrainerMode(scanner, trainerRole);
+                    break;
+                case "3":
+                    System.out.println("Exiting program...");
+                    break label;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+                    break;
             }
         }
 

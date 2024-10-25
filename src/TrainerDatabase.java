@@ -3,7 +3,7 @@ import java.io.*;
 
 public class TrainerDatabase {
 
-    private ArrayList<Trainer> records;
+    private static ArrayList<Trainer> records;
     private final String fileName;
 
     public TrainerDatabase() {
@@ -20,7 +20,7 @@ public class TrainerDatabase {
         return records;
     }
 
-    public boolean contains (String key) {
+    public static boolean contains(String key) {
         for (Trainer record : records) {
             if (record.getSearchKey().equals(key)) {
                 return true;
@@ -57,7 +57,7 @@ public class TrainerDatabase {
             File file = new File (fileName);
             Scanner fileScanner = new Scanner(file);
             while (fileScanner.hasNextLine()) {
-                insertRecord(createRecordFrom(fileScanner.nextLine()));;
+                insertRecord(createRecordFrom(fileScanner.nextLine()));
             }
             fileScanner.close();
         }
