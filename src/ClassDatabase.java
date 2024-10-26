@@ -5,15 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ClassDatabase {
+public class ClassDatabase implements DBO {
 
     private static ArrayList<Class> records;
     private final String fileName;
 
     //constructor
-    public ClassDatabase() {
-        this.fileName = "Classes.txt";
+    public ClassDatabase(String fileName) {
+        this.fileName = fileName;
         records = new ArrayList<Class>();
+        readFromFile();
     }
 
     //create a record from a string line in the file

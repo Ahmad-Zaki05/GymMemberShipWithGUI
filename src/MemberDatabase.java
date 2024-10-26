@@ -5,14 +5,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MemberDatabase {
+public class MemberDatabase implements DBO {
 
     private ArrayList<Member> records;
     private final String fileName;
 
-    public MemberDatabase() {
-        this.fileName = "Members.txt";
+    public MemberDatabase(String fileName) {
+        this.fileName = fileName;
         records = new ArrayList<Member>();
+        readFromFile();
     }
 
     public Member createRecordFrom (String line) {

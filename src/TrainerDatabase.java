@@ -1,14 +1,15 @@
 import java.util.*;
 import java.io.*;
 
-public class TrainerDatabase {
+public class TrainerDatabase implements DBO {
 
     private static ArrayList<Trainer> records;
     private final String fileName;
 
-    public TrainerDatabase() {
-        this.fileName = "Trainers.txt";
+    public TrainerDatabase(String fileName) {
+        this.fileName = fileName;
         records = new ArrayList<Trainer>();
+        readFromFile();
     }
 
     public Trainer createRecordFrom (String line) {

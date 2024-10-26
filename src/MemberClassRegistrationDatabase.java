@@ -6,14 +6,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MemberClassRegistrationDatabase {
+public class MemberClassRegistrationDatabase implements DBO {
 
     private ArrayList<MemberClassRegistration> records ;
     private final String fileName;
 
-    public MemberClassRegistrationDatabase() {
-        this.fileName = "Registration.txt";
+    public MemberClassRegistrationDatabase(String fileName) {
+        this.fileName = fileName;
         records  = new ArrayList<>();
+        readFromFile();
     }
 
     public MemberClassRegistration createRecordFrom (String line) {
