@@ -73,8 +73,10 @@ public class TrainerRole {
             System.out.println("Registration does not exist");
             return;
         }
-        if (registration.getRegistrationDate().isAfter(registration.getRegistrationDate().plusDays(3))) {
-            System.out.println("Cannot cancel registration");
+        if (LocalDate.now().isAfter(registration.getRegistrationDate().plusDays(3))) {
+            System.out.println("Registration date is more than 3 days ago:Cannot cancel registration");
+            System.out.println("Registration date: " + registration.getRegistrationDate());
+            System.out.println("Current date: " + LocalDate.now());
             return;
         }
         registrationDatabase.getRecord(memberId + classId).setRegistrationStatus("Cancelled");
