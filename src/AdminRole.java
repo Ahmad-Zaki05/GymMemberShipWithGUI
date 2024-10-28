@@ -1,11 +1,12 @@
 //this is essentially the GUI we will use
 
+import java.util.ArrayList;
+
 public class AdminRole {
-    private static TrainerDatabase database;
+    private final TrainerDatabase database;
 
     public AdminRole() {
         database = new TrainerDatabase("Trainers.txt");
-        database.readFromFile();
     }
 
     //adds a trainer to the database
@@ -15,8 +16,8 @@ public class AdminRole {
     }
 
     //retrieves the list of trainers
-    public TrainerDatabase getListOfTrainers() {
-        return database;
+    public ArrayList<Record> getListOfTrainers() {
+        return database.returnAllRecords();
     }
 
     //removes a trainer from the database
@@ -26,7 +27,6 @@ public class AdminRole {
 
     //save the database to a file on logout
     public void logout(){
-        System.out.println("Logging out");
         database.saveToFile();
     }
 

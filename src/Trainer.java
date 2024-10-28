@@ -20,5 +20,6 @@ public class Trainer implements Record{
     public String getSearchKey(){
         return trainerId;
     }
+
 }
 
