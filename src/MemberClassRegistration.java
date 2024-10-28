@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class MemberClassRegistration {
+public class MemberClassRegistration implements Record{
 
     private String memberId;
     private String classId;

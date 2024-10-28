@@ -1,4 +1,4 @@
-public class Member {
+public class Member implements Record{
     private String memberId;
     private String name;
     private String membershipType;

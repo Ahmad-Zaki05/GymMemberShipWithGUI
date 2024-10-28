@@ -1,4 +1,4 @@
-public class Class {
+public class Class implements Record{
 
     private String classID;
     private String className;

@@ -1,4 +1,4 @@
-public class Trainer {
+public class Trainer implements Record{
     private String trainerId;
     private String name;
     private String email;
