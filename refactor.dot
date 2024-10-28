@@ -1,0 +1,51 @@
+digraph "src" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+AdminRole                       [shape = record, label = "{ AdminRole | - database : TrainerDatabase\l|+ addTrainer(String, String, String, String, String) : void\l + removeTrainer(String) : void\l + logout() : void\l + getListOfTrainers() : ArrayList\<Record\>\l }"];
+Class                           [shape = record, label = "{ Class | - trainerID : String\l - className : String\l - duration : int\l - availableSeats : int\l - classID : String\l|+ getSearchKey() : String\l + getAvailableSeats() : int\l + setAvailableSeats(int) : void\l + lineRepresentation() : String\l }"];
+ClassDatabase                   [shape = record, label = "{ ClassDatabase | + createRecordFrom(String) : Record\l }"];
+DBO                             [shape = record, label = "{ DBO | - records : ArrayList\<Record\>\l - fileName : String\l|+ createRecordFrom(String) : Record\l + getRecord(String) : Record\l + readFromFile() : void\l + insertRecord(Record) : void\l + returnAllRecords() : ArrayList\<Record\>\l + saveToFile() : void\l + contains(String) : boolean\l + deleteRecord(String) : void\l }"];
+Member                          [shape = record, label = "{ Member | - phoneNumber : String\l - status : String\l - name : String\l - email : String\l - memberId : String\l - membershipType : String\l|+ getSearchKey() : String\l + lineRepresentation() : String\l }"];
+MemberClassRegistration         [shape = record, label = "{ MemberClassRegistration | - memberId : String\l - classId : String\l - registrationDate : LocalDate\l - status : String\l|+ getClassId() : String\l + lineRepresentation() : String\l + setRegistrationStatus(String) : void\l + getMemberId() : String\l + getRegistrationDate() : LocalDate\l + getSearchKey() : String\l }"];
+MemberClassRegistrationDatabase [shape = record, label = "{ MemberClassRegistrationDatabase | + createRecordFrom(String) : Record\l }"];
+MemberDatabase                  [shape = record, label = "{ MemberDatabase | + createRecordFrom(String) : Record\l }"];
+Record                          [shape = record, label = "{ \<\<interface\>\>\nRecord | + lineRepresentation() : String\l + getSearchKey() : String\l }"];
+Trainer                         [shape = record, label = "{ Trainer | - specialty : String\l - phoneNumber : String\l - email : String\l - trainerId : String\l - name : String\l|+ getSearchKey() : String\l + lineRepresentation() : String\l }"];
+TrainerDatabase                 [shape = record, label = "{ TrainerDatabase | + createRecordFrom(String) : Record\l }"];
+TrainerRole                     [shape = record, label = "{ TrainerRole | - memberDatabase : MemberDatabase\l - classDatabase : ClassDatabase\l - registrationDatabase : MemberClassRegistrationDatabase\l|+ cancelRegistration(String, String) : boolean\l + addMember(String, String, String, String, String, String) : void\l + getListOfRegistrations() : ArrayList\<Record\>\l + addClass(String, String, String, int, int) : void\l + logout() : void\l + getListOfMembers() : ArrayList\<Record\>\l + getListOfClasses() : ArrayList\<Class\>\l + registerMemberForClass(String, String, LocalDate) : boolean\l }"];
+aaa                             [shape = record, label = "{ aaa | + main(String[]) : void\l + testTrainerManagement() : double\l + testMemberManagement() : double\l + testClassManagement() : double\l + testRegistrationManagement() : double\l }"];
+
+AdminRole                       -> Trainer                         [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+AdminRole                       -> TrainerDatabase                 [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "database\n1"];
+AdminRole                       -> TrainerDatabase                 [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+Class                           -> Record                          [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+ClassDatabase                   -> Class                           [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+ClassDatabase                   -> DBO                             [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+DBO                             -> Record                          [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "records\n*"];
+Member                          -> Record                          [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+MemberClassRegistration         -> Record                          [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+MemberClassRegistrationDatabase -> DBO                             [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+MemberClassRegistrationDatabase -> MemberClassRegistration         [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+MemberDatabase                  -> DBO                             [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+MemberDatabase                  -> Member                          [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+Trainer                         -> Record                          [color = "#008200", style = dashed, arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+TrainerDatabase                 -> DBO                             [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+TrainerDatabase                 -> Trainer                         [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> Class                           [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> ClassDatabase                   [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> ClassDatabase                   [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "classDatabase\n1"];
+TrainerRole                     -> Member                          [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> MemberClassRegistration         [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> MemberClassRegistrationDatabase [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "registrationDatabase\n1"];
+TrainerRole                     -> MemberClassRegistrationDatabase [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> MemberDatabase                  [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+TrainerRole                     -> MemberDatabase                  [color = "#595959", style = solid , arrowtail = diamond , arrowhead = vee     , taillabel = "1", label = "", headlabel = "memberDatabase\n1"];
+aaa                             -> AdminRole                       [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+aaa                             -> TrainerRole                     [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+
+}
