@@ -1,0 +1,185 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.3">
+  <diagram name="Page-1" id="JUcYzHdb48iwHuwYL6-H">
+    <mxGraphModel dx="880" dy="468" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-1" value="AdminRole" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="57" y="20" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-2" value="- database: TrainerDatabase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-1">
+          <mxGeometry y="26" width="300" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-1">
+          <mxGeometry y="50" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-4" value="+ addtrainer (String, String, String, String, String): void&lt;div&gt;+ getListOfTrainers (): ArrayList &amp;lt;Trainer&amp;gt;&lt;/div&gt;&lt;div&gt;+ removeTrainer (String): void&lt;/div&gt;&lt;div&gt;+ logout (): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-1">
+          <mxGeometry y="58" width="300" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-7" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=0.39;entryY=1.069;entryDx=0;entryDy=0;entryPerimeter=0;labelBackgroundColor=none;strokeColor=#A8201A;fontColor=default;exitX=0.475;exitY=0.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="aSdRzUpNBeTwW4BRIwoA-16" target="aSdRzUpNBeTwW4BRIwoA-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="210" y="220" as="sourcePoint" />
+            <mxPoint x="260" y="260" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-16" value="TrainerDatabase" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="240" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-17" value="- records: ArrayList &amp;lt;Trainer&amp;gt;&lt;div&gt;- filename: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-16">
+          <mxGeometry y="26" width="240" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-18" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-16">
+          <mxGeometry y="60" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-19" value="+ insertRecord (Trainer): void&lt;div&gt;+ deleteRecord (String): void&lt;br&gt;&lt;div&gt;+ createRecordFrom (String): Trainer&lt;/div&gt;&lt;div&gt;+ returnAllRecords (): ArrayList &amp;lt;Trainer&amp;gt;&lt;/div&gt;&lt;div&gt;+ contains (String): boolean&lt;/div&gt;&lt;div&gt;+ getRecord (String): Trainer&lt;/div&gt;&lt;div&gt;+ readFromFile (): void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ saveToFile (): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-16">
+          <mxGeometry y="68" width="240" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-22" value="Trainer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="60" y="479" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-23" value="- trainerID: String&lt;div&gt;- name: String&lt;/div&gt;&lt;div&gt;- email: String&lt;/div&gt;&lt;div&gt;- specialty: String&lt;/div&gt;&lt;div&gt;- phoneNumber: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-22">
+          <mxGeometry y="26" width="240" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-24" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-22">
+          <mxGeometry y="110" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-25" value="+ lineRepresentation (): String&lt;div&gt;+ getSearchKey (): String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-22">
+          <mxGeometry y="118" width="240" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-26" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=0.497;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;labelBackgroundColor=none;strokeColor=#A8201A;fontColor=default;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="aSdRzUpNBeTwW4BRIwoA-22" target="aSdRzUpNBeTwW4BRIwoA-19">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="210" y="490" as="sourcePoint" />
+            <mxPoint x="220" y="164" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-27" value="TrainerRole" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="390" y="20" width="430" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-28" value="- memberDatabase: MemberDatabase&lt;div&gt;- classDatabase: C&lt;span style=&quot;background-color: initial;&quot;&gt;lassDatabase&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- registrationDatabase:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;MemberClassRegistrationDatabase&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-27">
+          <mxGeometry y="26" width="430" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-29" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-27">
+          <mxGeometry y="80" width="430" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-30" value="+ getListOfMembers: ArrayList &amp;lt;Member&amp;gt;&lt;div&gt;+ getListOfClasses: ArrayList &amp;lt;Classes&amp;gt;&lt;/div&gt;&lt;div&gt;+ getListOfRegistrations: ArrayList &amp;lt;MemberClassRegistrationDatabase&amp;gt;&lt;/div&gt;&lt;div&gt;+ registerMemberForClass (String, String, LocalDate): void&lt;/div&gt;&lt;div&gt;+ cancelRegistration (String, String): void&lt;/div&gt;&lt;div&gt;+ addMember&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;(String, String, String, String, String, String): void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ addClass (String, String, String, int, int): void&lt;/div&gt;&lt;div&gt;+ logout (): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-27">
+          <mxGeometry y="88" width="430" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-32" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;strokeColor=#A8201A;fontColor=#143642;fillColor=#FAE5C7;entryX=0.491;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.391;exitY=0.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="aSdRzUpNBeTwW4BRIwoA-33">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="480" y="278.05" as="sourcePoint" />
+            <mxPoint x="481.1300000000001" y="230.002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-33" value="ClassDatabase" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="390" y="280" width="230" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-34" value="- records: ArrayList &amp;lt;Class&amp;gt;&lt;div&gt;- filename: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-33">
+          <mxGeometry y="26" width="230" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-35" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-33">
+          <mxGeometry y="60" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-36" value="+ insertRecord (Class): void&lt;div&gt;+ deleteRecord (String): void&lt;br&gt;&lt;div&gt;+ createRecordFrom (String): Class&lt;/div&gt;&lt;div&gt;+ returnAllRecords (): ArrayList &amp;lt;Class&amp;gt;&lt;/div&gt;&lt;div&gt;+ contains (String): boolean&lt;/div&gt;&lt;div&gt;+ getRecord (String): Class&lt;/div&gt;&lt;div&gt;+ readFromFile (): void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ saveToFile (): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-33">
+          <mxGeometry y="68" width="230" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-37" value="Class" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="390" y="522" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-38" value="&lt;div&gt;- classID: String&lt;/div&gt;- trainerID: String&lt;div&gt;- className: String&lt;/div&gt;&lt;div&gt;- duration: int&lt;/div&gt;&lt;div&gt;- availableSeats: int&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-37">
+          <mxGeometry y="26" width="300" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-39" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-37">
+          <mxGeometry y="110" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-40" value="+ lineRepresentation (): String&lt;div&gt;+ getSearchKey (): String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-37">
+          <mxGeometry y="118" width="300" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-41" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;strokeColor=#A8201A;fontColor=#143642;fillColor=#FAE5C7;entryX=0.491;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.391;exitY=0.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="480" y="522" as="sourcePoint" />
+            <mxPoint x="481.1300000000001" y="470.002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-42" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;strokeColor=#A8201A;fontColor=#143642;fillColor=#FAE5C7;entryX=-0.005;entryY=0.607;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.358;exitY=0.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="aSdRzUpNBeTwW4BRIwoA-43" target="aSdRzUpNBeTwW4BRIwoA-30">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="180" y="690" as="sourcePoint" />
+            <mxPoint x="389" y="175" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="180" y="660" />
+              <mxPoint x="335" y="660" />
+              <mxPoint x="335" y="182" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-43" value="&lt;span style=&quot;font-weight: 400; text-align: left;&quot;&gt;MemberClassRegistrationDatabase&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="60" y="708" width="335" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-44" value="- records: ArrayList &amp;lt;MemberClassRegistration&amp;gt;&lt;div&gt;- filename: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-43">
+          <mxGeometry y="26" width="335" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-45" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-43">
+          <mxGeometry y="60" width="335" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-46" value="+ insertRecord (MemberClassRegistration): void&lt;div&gt;+ deleteRecord (String): void&lt;br&gt;&lt;div&gt;+ createRecordFrom (String):&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;MemberClassRegistration&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ returnAllRecords (): ArrayList &amp;lt;MemberClassRegistration&amp;gt;&lt;/div&gt;&lt;div&gt;+ contains (String): boolean&lt;/div&gt;&lt;div&gt;+ getRecord (String):&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;MemberClassRegistration&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ readFromFile (): void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ saveToFile (): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-43">
+          <mxGeometry y="68" width="335" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-47" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;strokeColor=#A8201A;fontColor=#143642;fillColor=#FAE5C7;entryX=0.43;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.433;exitY=0.029;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="aSdRzUpNBeTwW4BRIwoA-48" target="aSdRzUpNBeTwW4BRIwoA-46">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="204" y="950" as="sourcePoint" />
+            <mxPoint x="270" y="955" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-48" value="&lt;span style=&quot;font-weight: 400; text-align: left;&quot;&gt;MemberClassRegistration&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="60" y="955" width="335" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-49" value="&lt;div&gt;- classID: String&lt;/div&gt;&lt;div&gt;- memberID: String&lt;/div&gt;&lt;div&gt;- status: String&lt;/div&gt;&lt;div&gt;- registrationDate: LocalDate&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-48">
+          <mxGeometry y="26" width="335" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-50" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-48">
+          <mxGeometry y="90" width="335" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-51" value="+ lineRepresentation (): String&lt;div&gt;+ getSearchKey (): String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-48">
+          <mxGeometry y="98" width="335" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-52" value="&lt;span style=&quot;font-weight: 400; text-align: left;&quot;&gt;MemberDatabase&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="485" y="708" width="335" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-53" value="- records: ArrayList &amp;lt;Member&amp;gt;&lt;div&gt;- filename: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-52">
+          <mxGeometry y="26" width="335" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-54" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-52">
+          <mxGeometry y="60" width="335" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-55" value="+ insertRecord (Member): void&lt;div&gt;+ deleteRecord (String): void&lt;br&gt;&lt;div&gt;+ createRecordFrom (String):&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Member&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ returnAllRecords (): ArrayList &amp;lt;Member&amp;gt;&lt;/div&gt;&lt;div&gt;+ contains (String): boolean&lt;/div&gt;&lt;div&gt;+ getRecord (String):&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Member&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ readFromFile (): void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ saveToFile (): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-52">
+          <mxGeometry y="68" width="335" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-56" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;strokeColor=#A8201A;fontColor=#143642;fillColor=#FAE5C7;entryX=0.874;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="aSdRzUpNBeTwW4BRIwoA-30">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="766" y="710" as="sourcePoint" />
+            <mxPoint x="775" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-57" value="Member" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" vertex="1" parent="1">
+          <mxGeometry x="535" y="955" width="240" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-58" value="- memberID: String&lt;div&gt;- name: String&lt;/div&gt;&lt;div&gt;- email: String&lt;/div&gt;&lt;div&gt;- phoneNumber: String&lt;/div&gt;&lt;div&gt;- membershipType: String&lt;/div&gt;&lt;div&gt;- status: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-57">
+          <mxGeometry y="26" width="240" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-59" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-57">
+          <mxGeometry y="125" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-60" value="+ lineRepresentation (): String&lt;div&gt;+ getSearchKey (): String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#143642;" vertex="1" parent="aSdRzUpNBeTwW4BRIwoA-57">
+          <mxGeometry y="133" width="240" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdRzUpNBeTwW4BRIwoA-61" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;strokeColor=#A8201A;fontColor=#143642;fillColor=#FAE5C7;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="aSdRzUpNBeTwW4BRIwoA-57">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="325" y="920" as="sourcePoint" />
+            <mxPoint x="651" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
