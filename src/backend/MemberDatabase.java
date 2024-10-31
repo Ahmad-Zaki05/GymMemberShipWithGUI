@@ -1,23 +1,25 @@
-public class TrainerDatabase extends DBO {
+package backend;
 
-    // private static ArrayList<Trainer> records;
+public class MemberDatabase extends DBO {
+
+    // private ArrayList<backend.Member> records;
     // private final String fileName;
 
-    public TrainerDatabase(String fileName) {
+    public MemberDatabase(String fileName) {
         super(fileName);
     }
 
     public Record createRecordFrom (String line) {
         String[] parts = line.split(",");
-        return new Trainer(parts[0], parts[1], parts[2], parts[3], parts[4]);
+        return new Member(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
     }
 
-    // public ArrayList<Trainer> returnAllRecords() {
+    // public ArrayList<backend.Member> returnAllRecords() {
     //     return records;
     // }
 
-    // public static boolean contains(String key) {
-    //     for (Trainer record : records) {
+    // public boolean contains (String key) {
+    //     for (backend.Member record : records) {
     //         if (record.getSearchKey().equals(key)) {
     //             return true;
     //         }
@@ -25,8 +27,8 @@ public class TrainerDatabase extends DBO {
     //     return false;
     // }
 
-    // public Trainer getRecord(String key) {
-    //     for (Trainer record : records) {
+    // public backend.Record getRecord(String key) {
+    //     for (backend.Record record : records) {
     //         if (record.getSearchKey().equals(key)) {
     //             return record;
     //         }
@@ -34,17 +36,17 @@ public class TrainerDatabase extends DBO {
     //     return null;
     // }
 
-    // public void insertRecord(Trainer record) {
+    // public void insertRecord(backend.Member record) {
     //     if(!contains(record.getSearchKey())) {
     //         records.add(record);
     //     }
     //     else {
-    //         System.out.println("Trainer already exists");
+    //         System.out.println("backend.Member already exists");
     //     }
     // }
 
     // public void deleteRecord(String key) {
-    //     Trainer record = getRecord(key);
+    //     backend.Member record = (backend.Member) getRecord(key);
     //     if (record != null) {
     //         records.remove(record);
     //     }
@@ -55,7 +57,7 @@ public class TrainerDatabase extends DBO {
     //         File file = new File (fileName);
     //         Scanner fileScanner = new Scanner(file);
     //         while (fileScanner.hasNextLine()) {
-    //             insertRecord(createRecordFrom(fileScanner.nextLine()));
+    //             insertRecord(createRecordFrom(fileScanner.nextLine()));;
     //         }
     //         fileScanner.close();
     //     }
@@ -77,5 +79,4 @@ public class TrainerDatabase extends DBO {
     //         e.printStackTrace();
     //     }
     // }
-
 }

@@ -1,26 +1,27 @@
-public class ClassDatabase extends DBO {
+package backend;
 
-    // private static ArrayList<Class> records;
+import java.time.LocalDate;
+
+public class MemberClassRegistrationDatabase extends DBO {
+
+    // private ArrayList<backend.MemberClassRegistration> records ;
     // private final String fileName;
 
-    //constructor
-    public ClassDatabase(String fileName) {
+    public MemberClassRegistrationDatabase(String fileName) {
         super(fileName);
     }
 
-    //create a record from a string line in the file
     public Record createRecordFrom (String line) {
         String[] parts = line.split(",");
-        return new Class(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+        return new MemberClassRegistration(parts[0], parts[1], parts[2], LocalDate.parse(parts[3]));
     }
 
-    // public ArrayList<Class> returnAllRecords() {
-    //     return records; //return all records
+    // public ArrayList<backend.MemberClassRegistration> returnAllRecords() {
+    //     return records;
     // }
 
-    //check if a record exists
     // public boolean contains (String key) {
-    //     for (Class record : records) {
+    //     for (backend.MemberClassRegistration record : records) {
     //         if (record.getSearchKey().equals(key)) {
     //             return true;
     //         }
@@ -28,9 +29,8 @@ public class ClassDatabase extends DBO {
     //     return false;
     // }
 
-    //fetches a record for a given key
-    // public Class getRecord(String key) {
-    //     for (Class record : records) {
+    // public backend.MemberClassRegistration getRecord(String key) {
+    //     for (backend.MemberClassRegistration record : records) {
     //         if (record.getSearchKey().equals(key)) {
     //             return record;
     //         }
@@ -38,36 +38,32 @@ public class ClassDatabase extends DBO {
     //     return null;
     // }
 
-    //insert a record
-    // public void insertRecord(Class record) {
-    //     if(!contains(record.getSearchKey())) { //check if the record already exists
+    // public void insertRecord(backend.MemberClassRegistration record) {
+    //     if(!contains(record.getSearchKey())) {
     //         records.add(record);
     //     }
     //     else {
-    //         System.out.println("Class already exists");
+    //         System.out.println("Registration already exists");
     //     }
     // }
 
-    //delete a record
     // public void deleteRecord(String key) {
-    //     Class record = getRecord(key);
-    //     if (record != null) { //check if the record exists
+    //     backend.MemberClassRegistration record = getRecord(key);
+    //     if (record != null) {
     //         records.remove(record);
     //     }
     // }
 
     // public void readFromFile() {
     //     try {
-    //         File file = new File (fileName);
+    //         File file = new File(fileName);
     //         Scanner fileScanner = new Scanner(file);
     //         while (fileScanner.hasNextLine()) {
-    //             insertRecord(createRecordFrom(fileScanner.nextLine()));;
+    //             insertRecord(createRecordFrom(fileScanner.nextLine()));
     //         }
     //         fileScanner.close();
-    //     }
-    //     catch (FileNotFoundException e) {
-    //         System.out.println("An error occurred.");
-    //         e.printStackTrace();
+    //     } catch (FileNotFoundException e) {
+    //         System.out.println("File not found");
     //     }
     // }
 
@@ -75,7 +71,7 @@ public class ClassDatabase extends DBO {
     //     try {
     //         FileWriter fileWriter = new FileWriter(fileName);
     //         for (int i = 0; i < records.size(); i ++) {
-    //             fileWriter.write(records.get(i).lineRepresentation() + "\n");//write each record to the file
+    //             fileWriter.write(records.get(i).lineRepresentation() + "\n");
     //         }
     //         fileWriter.close();
     //     } catch (IOException e) {

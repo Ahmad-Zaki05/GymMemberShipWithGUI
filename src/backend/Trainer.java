@@ -1,3 +1,5 @@
+package backend;
+
 public class Trainer implements Record{
     private String trainerId;
     private String name;

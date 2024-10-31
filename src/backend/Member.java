@@ -1,3 +1,5 @@
+package backend;
+
 public class Member implements Record{
     private String memberId;
     private String name;

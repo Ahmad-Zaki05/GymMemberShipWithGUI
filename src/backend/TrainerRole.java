@@ -1,4 +1,4 @@
-//this is essentially the GUI we will use
+package backend;//this is essentially the GUI we will use
 //for members add setRegistrationStatus and getRegistrationDate
 
 import java.time.LocalDate;

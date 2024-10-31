@@ -1,4 +1,4 @@
-//this is essentially the GUI we will use
+package backend;//this is essentially the GUI we will use
 
 import java.util.ArrayList;
 

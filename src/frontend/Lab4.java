@@ -1,3 +1,9 @@
+package frontend;
+
+import backend.AdminRole;
+import backend.Class;
+import backend.TrainerRole;
+
 import java.util.Scanner;
 import java.time.LocalDate;
 
@@ -9,7 +15,7 @@ public class Lab4 {
 
         label:
         while (true) {
-            System.out.println("Choose operation mode\n (1) Admin\n (2) Trainer\n (3) Quit");
+            System.out.println("Choose operation mode\n (1) Admin\n (2) backend.Trainer\n (3) Quit");
             String mode = scanner.nextLine();
 
             switch (mode) {
@@ -34,7 +40,7 @@ public class Lab4 {
     private static void handleAdminMode(Scanner scanner, AdminRole adminRole) {
         label:
         while (true) {
-            System.out.println("Admin Menu: (1. Add Trainer, 2. Remove Trainer, 3. List Trainers, 4. Logout)");
+            System.out.println("Admin Menu: (1. Add backend.Trainer, 2. Remove backend.Trainer, 3. List Trainers, 4. Logout)");
             String action = scanner.nextLine();
             switch (action) {
                 case "1": {
@@ -54,7 +60,7 @@ public class Lab4 {
                     break;
                 }
                 case "3":
-                    for (Record trainer : adminRole.getListOfTrainers()) {
+                    for (backend.Record trainer : adminRole.getListOfTrainers()) {
                         System.out.println(trainer.lineRepresentation());
                     }
                     break;
@@ -71,7 +77,7 @@ public class Lab4 {
     private static void handleTrainerMode(Scanner scanner, TrainerRole trainerRole) {
         label:
         while (true) {
-            System.out.println("Trainer Menu: (1. Add Member, 2. Add Class, 3. Register Member, 4. Cancel Registration, 5. List Registrations, 6. List Members, 7. List Classes ,8. Logout)");
+            System.out.println("backend.Trainer Menu: (1. Add backend.Member, 2. Add backend.Class, 3. Register backend.Member, 4. Cancel Registration, 5. List Registrations, 6. List Members, 7. List Classes ,8. Logout)");
             String action = scanner.nextLine();
 
             switch (action) {
@@ -112,12 +118,12 @@ public class Lab4 {
                     break;
                 }
                 case "5":
-                    for (Record registration : trainerRole.getListOfRegistrations()) {
+                    for (backend.Record registration : trainerRole.getListOfRegistrations()) {
                         System.out.println(registration.lineRepresentation());
                     }
                     break;
                 case "6":
-                    for (Record member : trainerRole.getListOfMembers()) {
+                    for (backend.Record member : trainerRole.getListOfMembers()) {
                         System.out.println(member.lineRepresentation());
                     }
                     break;
