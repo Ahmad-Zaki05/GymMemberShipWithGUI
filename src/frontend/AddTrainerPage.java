@@ -1,4 +1,5 @@
 package frontend;
+import backend.*;
 
 import javax.swing.JOptionPane;
 
@@ -12,6 +13,8 @@ import javax.swing.JOptionPane;
  * @author Zaki
  */
 public class AddTrainerPage extends javax.swing.JFrame {
+
+    AdminRole admin = new AdminRole();
 
     /**
      * Creates new form AddTrainerPage
@@ -150,26 +153,27 @@ public class AddTrainerPage extends javax.swing.JFrame {
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
-        if (idField.getText().equals("")) {
+        if (idField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
-//        else if (records.contains (idField.getText())) {
-//            JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " already exists", "Error: Duplicated Data", JOptionPane.ERROR_MESSAGE);
-//        }
-        else if (nameField.getText().equals("")) {
+        else if (admin.getListOfTrainers().stream().anyMatch(record -> record.getSearchKey().equals(idField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " already exists", "Error: Duplicated Data", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (nameField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Name can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
-        else if (emailField.getText().equals("")) {
+        else if (emailField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Email can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
-        else if (specialtyField.getText().equals("")) {
+        else if (specialtyField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Specialty can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
-        else if (phoneNumberField.getText().equals("")) {
+        else if (phoneNumberField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Phone number can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
         else {
             JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " has been added", "Successful Login", JOptionPane.PLAIN_MESSAGE);
+            admin.addTrainer(idField.getText(), nameField.getText(), emailField.getText(), specialtyField.getText(), phoneNumberField.getText());admin.logout();
             new AdminOptions();
             this.dispose();
         }
