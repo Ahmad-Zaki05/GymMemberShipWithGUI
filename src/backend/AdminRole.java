@@ -1,4 +1,5 @@
-package backend;//this is essentially the GUI we will use
+package backend;
+import constants.FileNames;
 
 import java.util.ArrayList;
 
@@ -6,7 +7,7 @@ public class AdminRole {
     private final TrainerDatabase database;
 
     public AdminRole() {
-        database = new TrainerDatabase("Trainers.txt");
+        database = new TrainerDatabase(FileNames.TRAINER_FILENAME);
     }
 
     //adds a trainer to the database

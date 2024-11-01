@@ -1,5 +1,5 @@
-package backend;//this is essentially the GUI we will use
-//for members add setRegistrationStatus and getRegistrationDate
+package backend;
+import constants.FileNames;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ public class TrainerRole {
 
 
     public TrainerRole() {
-        memberDatabase = new MemberDatabase("Members.txt");
-        classDatabase = new ClassDatabase("Classes.txt");
-        registrationDatabase = new MemberClassRegistrationDatabase("Registration.txt");
+        memberDatabase = new MemberDatabase(FileNames.MEMBER_FILENAME);
+        classDatabase = new ClassDatabase(FileNames.CLASS_FILENAME);
+        registrationDatabase = new MemberClassRegistrationDatabase(FileNames.REGISTRATION_FILENAME);
     }
 
     public void addMember(String memberId, String name, String membershipType, String email, String phoneNumber, String status) {
