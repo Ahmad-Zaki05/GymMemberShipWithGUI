@@ -1,7 +1,12 @@
 package frontend;/*
+import constants.LoginCredentials;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
+import constants.LoginCredentials;
+
+import javax.swing.*;
 
 /**
  *
@@ -132,7 +137,20 @@ public class TrainerLoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-        // TODO add your handling code here:
+        if (usernameField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Username can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (passwordField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Password can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (usernameField.getText().equals(LoginCredentials.TRAINER_USERNAME) && passwordField.getText().equals(LoginCredentials.TRAINER_PASSWORD)) {
+            JOptionPane.showMessageDialog(null, "Hello Trainer", "Successful Login", JOptionPane.PLAIN_MESSAGE);
+            //new TrainerOptions (); //add proper implementation for trainer options
+            this.dispose ();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Username and Password don't match", "Error: Incorrect Credentials", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_loginButtonMouseClicked
 
     /**

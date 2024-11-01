@@ -1,4 +1,5 @@
 package frontend;
+import constants.LoginCredentials;
 
 import javax.swing.JOptionPane;
 
@@ -145,7 +146,7 @@ public class AdminLoginPage extends javax.swing.JFrame {
         else if (passwordField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Password can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
-        else if (usernameField.getText().equals("admin") && passwordField.getText().equals("12345")) {
+        else if (usernameField.getText().equals(LoginCredentials.ADMIN_USERNAME) && passwordField.getText().equals(LoginCredentials.ADMIN_PASSWORD)) {
             JOptionPane.showMessageDialog(null, "Hello Admin", "Successful Login", JOptionPane.PLAIN_MESSAGE);
             new AdminOptions ();
             this.dispose ();
