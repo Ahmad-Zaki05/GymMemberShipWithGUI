@@ -23,6 +23,7 @@ public class AddTrainerPage extends javax.swing.JFrame {
         initComponents();
         this.setVisible (true);
         this.setTitle ("Add Trainer");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -46,6 +47,7 @@ public class AddTrainerPage extends javax.swing.JFrame {
         phoneNumberField = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +80,13 @@ public class AddTrainerPage extends javax.swing.JFrame {
             }
         });
 
+        backButton.setText("Back");
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,9 +101,11 @@ public class AddTrainerPage extends javax.swing.JFrame {
                                 .addComponent(emailLabel)
                                 .addComponent(nameLabel))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(specialtyLabel)
-                                    .addComponent(phoneNumberLabel))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(backButton)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(specialtyLabel)
+                                        .addComponent(phoneNumberLabel)))
                                 .addGap(4, 4, 4)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +152,9 @@ public class AddTrainerPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(addButton)
                 .addGap(18, 18, 18)
-                .addComponent(quitButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quitButton)
+                    .addComponent(backButton))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
@@ -178,6 +191,11 @@ public class AddTrainerPage extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_addButtonMouseClicked
+
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
+        new AdminOptions();
+        this.dispose();
+    }//GEN-LAST:event_backButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -216,6 +234,7 @@ public class AddTrainerPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField idField;

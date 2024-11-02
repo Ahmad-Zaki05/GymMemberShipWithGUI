@@ -20,6 +20,8 @@ public class TrainerLoginPage extends javax.swing.JFrame {
     public TrainerLoginPage() {
         initComponents();
         this.setVisible (true);
+        this.setTitle("Trainer Login");
+        this.setLocationRelativeTo(null);
     }
 
     /**

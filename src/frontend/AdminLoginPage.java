@@ -20,6 +20,8 @@ public class AdminLoginPage extends javax.swing.JFrame {
     public AdminLoginPage() {
         initComponents();
         this.setVisible (true);
+        this.setTitle("Admin Login");
+        this.setLocationRelativeTo(null);
     }
 
     /**

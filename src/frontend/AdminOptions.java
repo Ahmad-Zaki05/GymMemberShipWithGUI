@@ -15,6 +15,8 @@ public class AdminOptions extends javax.swing.JFrame {
     public AdminOptions() {
         initComponents();
         this.setVisible (true);
+        this.setTitle("Admin Options");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -55,9 +57,19 @@ public class AdminOptions extends javax.swing.JFrame {
 
         removeTrainerButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         removeTrainerButton.setText("Remove Trainer");
+        removeTrainerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeTrainerButtonMouseClicked(evt);
+            }
+        });
 
         viewTrainersButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         viewTrainersButton.setText("View Trainers");
+        viewTrainersButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewTrainersButtonMouseClicked(evt);
+            }
+        });
 
         logout.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         logout.setText("Logout");
@@ -128,6 +140,16 @@ public class AdminOptions extends javax.swing.JFrame {
         new AddTrainerPage();
         this.dispose();
     }//GEN-LAST:event_addTrainerButtonMouseClicked
+
+    private void removeTrainerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeTrainerButtonMouseClicked
+        new RemoveTrainerPage();
+        this.dispose();
+    }//GEN-LAST:event_removeTrainerButtonMouseClicked
+
+    private void viewTrainersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewTrainersButtonMouseClicked
+        new ViewTrainersPage();
+        this.dispose();
+    }//GEN-LAST:event_viewTrainersButtonMouseClicked
 
     /**
      * @param args the command line arguments
