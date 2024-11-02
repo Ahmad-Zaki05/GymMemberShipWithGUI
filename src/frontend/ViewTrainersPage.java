@@ -3,21 +3,47 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontend;
+import backend.AdminRole;
+import backend.Trainer;
+
+import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
  * @author Zaki
  */
 public class ViewTrainersPage extends javax.swing.JFrame {
-
+    AdminRole admin;
     /**
      * Creates new form ViewTrainersPage
      */
     public ViewTrainersPage() {
+        admin = new AdminRole();
         initComponents();
         this.setVisible(true);
         this.setTitle("View Trainers");
         this.setLocationRelativeTo(null);
+        Trainer[] trainers = admin.getListOfTrainers().toArray(new Trainer[0]);
+        DefaultTableModel model = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        model.addColumn("ID");
+        model.addColumn("Name");
+        model.addColumn("Email");
+        model.addColumn("Specialty");
+        model.addColumn("Phone Number");
+        for (int i = 0; i < trainers.length; i++) {
+            String[] elems = trainers[i].lineRepresentation().split(",");
+            model.addRow(elems);
+        }
+        jTable1.setModel(model);
+        
+
     }
 
     /**
@@ -82,28 +108,26 @@ public class ViewTrainersPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 754, Short.MAX_VALUE)
                         .addComponent(quitButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(quitButton))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         pack();

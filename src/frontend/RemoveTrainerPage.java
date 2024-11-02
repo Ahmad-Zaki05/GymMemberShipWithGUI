@@ -3,17 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontend;
+import backend.AdminRole;
+
+import javax.swing.*;
 
 /**
  *
  * @author Zaki
  */
 public class RemoveTrainerPage extends javax.swing.JFrame {
-
+    AdminRole admin;
     /**
      * Creates new form RemoveTrainerPage
      */
     public RemoveTrainerPage() {
+        admin = new AdminRole();
         initComponents();
         this.setVisible (true);
         this.setTitle("Remove Trainer");
@@ -99,7 +103,14 @@ public class RemoveTrainerPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeButtonMouseClicked
-        // TODO add your handling code here:
+        if (trainerIDField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"ID cannot be empty", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        } else if (admin.getListOfTrainers().stream().noneMatch(t -> t.getSearchKey().equals(trainerIDField.getText()))) {
+            JOptionPane.showMessageDialog(null,"ID does not exist", "Error 404 ", JOptionPane.ERROR_MESSAGE);
+        } else {
+            admin.removeTrainer(trainerIDField.getText());admin.logout();
+            JOptionPane.showMessageDialog(null,"Trainer removed successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_removeButtonMouseClicked
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
