@@ -14,13 +14,21 @@ import javax.swing.JOptionPane;
  */
 public class AddTrainerPage extends javax.swing.JFrame {
 
-    AdminRole admin = new AdminRole();
+    AdminRole admin;
+    AdminOptions adminOptions;
 
     /**
      * Creates new form AddTrainerPage
      */
-    public AddTrainerPage() {
+    public AddTrainerPage () {
         initComponents();
+    }
+    
+    public AddTrainerPage(AdminRole admin, AdminOptions adminOptions) {
+        initComponents();
+        this.admin = admin;
+        this.adminOptions = adminOptions;
+        adminOptions.setVisible(false);
         this.setVisible (true);
         this.setTitle ("Add Trainer");
         this.setLocationRelativeTo(null);
@@ -186,14 +194,14 @@ public class AddTrainerPage extends javax.swing.JFrame {
         }
         else {
             JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " has been added", "Successful Login", JOptionPane.PLAIN_MESSAGE);
-            admin.addTrainer(idField.getText(), nameField.getText(), emailField.getText(), specialtyField.getText(), phoneNumberField.getText());admin.logout();
-            new AdminOptions();
+            admin.addTrainer(idField.getText(), nameField.getText(), emailField.getText(), specialtyField.getText(), phoneNumberField.getText());
+            adminOptions.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_addButtonMouseClicked
 
     private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
-        new AdminOptions();
+        adminOptions.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backButtonMouseClicked
 

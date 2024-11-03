@@ -1,4 +1,8 @@
-package frontend;/*
+package frontend;
+
+import backend.AdminRole;
+
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -8,7 +12,7 @@ package frontend;/*
  * @author Zaki
  */
 public class AdminOptions extends javax.swing.JFrame {
-
+    AdminRole admin = new AdminRole();
     /**
      * Creates new form AdminOptions
      */
@@ -128,6 +132,7 @@ public class AdminOptions extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        admin.logout();
         new RoleSelection ();
         this.dispose ();
     }//GEN-LAST:event_logoutMouseClicked
@@ -137,7 +142,7 @@ public class AdminOptions extends javax.swing.JFrame {
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void addTrainerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTrainerButtonMouseClicked
-        new AddTrainerPage();
+        new AddTrainerPage(admin, this);
         this.dispose();
     }//GEN-LAST:event_addTrainerButtonMouseClicked
 
