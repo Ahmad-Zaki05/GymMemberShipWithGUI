@@ -5,6 +5,7 @@
 package frontend;
 
 import backend.TrainerRole;
+import backend.Member;
 
 /**
  *
@@ -25,6 +26,16 @@ public class ViewMembersPage extends javax.swing.JFrame {
         this.setVisible(true);
         this.setTitle("View Members");
         this.setLocationRelativeTo(null);
+        Member [] members = trainer.getListOfMembers().toArray(new Member[0]);
+        for (int i = 0; i < members.length; i++) {
+            String[] elems = members[i].lineRepresentation().split(",");
+            jTable1.setValueAt(elems[0], i, 0);
+            jTable1.setValueAt(elems[1], i, 1);
+            jTable1.setValueAt(elems[2], i, 2);
+            jTable1.setValueAt(elems[3], i, 3);
+            jTable1.setValueAt(elems[4], i, 4);
+            jTable1.setValueAt(elems[5], i, 5);
+        }
     }
 
     /**

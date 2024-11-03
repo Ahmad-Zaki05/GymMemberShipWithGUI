@@ -153,6 +153,7 @@ TrainerRole trainer = new TrainerRole();
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        trainer.logout();
         new RoleSelection();
         this.dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
@@ -183,12 +184,12 @@ TrainerRole trainer = new TrainerRole();
     }//GEN-LAST:event_registerMemberForClassButtonMouseClicked
 
     private void cancelRegistrationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelRegistrationButtonMouseClicked
-        new CancelRegistrationPage();
+        new CancelRegistrationPage(trainer,this);
         this.setVisible(false);
     }//GEN-LAST:event_cancelRegistrationButtonMouseClicked
 
     private void viewRegistrationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewRegistrationButtonMouseClicked
-        new ViewRegistrationsPage();
+        new ViewRegistrationsPage(trainer,this);
         this.setVisible(false);
     }//GEN-LAST:event_viewRegistrationButtonMouseClicked
 

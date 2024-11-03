@@ -21,29 +21,22 @@ public class ViewTrainersPage extends javax.swing.JFrame {
      * Creates new form ViewTrainersPage
      */
     public ViewTrainersPage(AdminRole admin, AdminOptions adminOp) {
-        admin = new AdminRole();
+        this.admin = admin;
         this.adminOp = adminOp;
         initComponents();
         this.setVisible(true);
         this.setTitle("View Trainers");
         this.setLocationRelativeTo(null);
-        Trainer[] trainers = admin.getListOfTrainers().toArray(new Trainer[0]);
-        DefaultTableModel model = new DefaultTableModel(){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        model.addColumn("ID");
-        model.addColumn("Name");
-        model.addColumn("Email");
-        model.addColumn("Specialty");
-        model.addColumn("Phone Number");
+        Trainer [] trainers = admin.getListOfTrainers().toArray(new Trainer[0]);
         for (int i = 0; i < trainers.length; i++) {
             String[] elems = trainers[i].lineRepresentation().split(",");
-            model.addRow(elems);
+            jTable1.setValueAt(elems[0], i, 0);
+            jTable1.setValueAt(elems[1], i, 1);
+            jTable1.setValueAt(elems[2], i, 2);
+            jTable1.setValueAt(elems[3], i, 3);
+            jTable1.setValueAt(elems[4], i, 4);
         }
-        jTable1.setModel(model);
+
         
 
     }

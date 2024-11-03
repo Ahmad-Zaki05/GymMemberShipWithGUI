@@ -176,7 +176,6 @@ public class RegisterMemberForClassPage extends javax.swing.JFrame {
             calendar.setTime(registrationDateField.getDate());
             trainer.registerMemberForClass(memberIDField.getText(), classIDField.getText(), LocalDate.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
             JOptionPane.showMessageDialog(null, "Member with ID: " + memberIDField.getText() + " has registered to class: " + classIDField.getText(), "Successful Registration", JOptionPane.PLAIN_MESSAGE);
-            trainer.logout();
             trainerOptions.setVisible(true);
             this.dispose();
         }

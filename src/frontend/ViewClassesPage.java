@@ -5,6 +5,7 @@
 package frontend;
 
 import backend.TrainerRole;
+import backend.Class;
 
 /**
  *
@@ -23,6 +24,16 @@ public class ViewClassesPage extends javax.swing.JFrame {
         this.setVisible(true);
         this.setTitle("View Classes");
         this.setLocationRelativeTo(null);
+        Class [] classes = trainer.getListOfClasses().toArray(new Class[0]);
+        for (int i = 0; i < classes.length; i++) {
+            String[] elems = classes[i].lineRepresentation().split(",");
+            jTable1.setValueAt(elems[0], i, 0);
+            jTable1.setValueAt(elems[1], i, 1);
+            jTable1.setValueAt(elems[2], i, 2);
+            jTable1.setValueAt(elems[3], i, 3);
+            jTable1.setValueAt(elems[4], i, 4);
+        }
+
     }
 
     /**

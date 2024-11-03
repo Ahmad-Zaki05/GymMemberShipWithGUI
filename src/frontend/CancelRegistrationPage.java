@@ -4,6 +4,8 @@
  */
 package frontend;
 
+import backend.TrainerRole;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -12,11 +14,16 @@ import javax.swing.JOptionPane;
  */
 public class CancelRegistrationPage extends javax.swing.JFrame {
 
+    TrainerRole trainer;
+    TrainerOptions trainerOptions;
+
     /**
      * Creates new form CancelRegistrationPage
      */
-    public CancelRegistrationPage() {
+    public CancelRegistrationPage(TrainerRole trainer, TrainerOptions trainerOptions) {
         initComponents();
+        this.trainer = trainer;
+        this.trainerOptions = trainerOptions;
         this.setVisible(true);
         this.setTitle("Cancel Registration");
         this.setLocationRelativeTo(null);
@@ -133,49 +140,54 @@ public class CancelRegistrationPage extends javax.swing.JFrame {
     private void cancelRegistrationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelRegistrationButtonMouseClicked
         if (memberIDField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Member ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
-        }
-        else if (classIDField.getText().equals("")) {
+        } else if (classIDField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Class ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        } else if (trainer.getListOfMembers().stream().noneMatch(member -> member.getSearchKey().equals(memberIDField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Member with ID: " + memberIDField.getText() + " doesn't exist", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        } else if (trainer.getListOfClasses().stream().noneMatch(class_ -> class_.getSearchKey().equals(classIDField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Class with ID: " + classIDField.getText() + " doesn't exist", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        } else if (!trainer.cancelRegistration(memberIDField.getText(), classIDField.getText())) {
+            JOptionPane.showMessageDialog(null, "Registration can't be cancelled", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        } else {
+            trainer.getListOfRegistrations().removeIf(record ->record.getSearchKey().equals(memberIDField.getText() + classIDField.getText()));trainer.logout();
+            JOptionPane.showMessageDialog(null, "Registration cancelled successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
-//        else {
-//            implement the logic
-//        }
     }//GEN-LAST:event_cancelRegistrationButtonMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CancelRegistrationPage().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(CancelRegistrationPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new CancelRegistrationPage().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
