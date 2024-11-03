@@ -44,6 +44,7 @@ public abstract class DBO {
     public void insertRecord(Record record) {
         if(!contains(record.getSearchKey())) {
             records.add(record);
+            saveToFile();
         }
         else;
     }

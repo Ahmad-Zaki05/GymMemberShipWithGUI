@@ -4,12 +4,14 @@
  */
 package frontend;
 
+import backend.TrainerRole;
+
 /**
  *
  * @author Zaki
  */
 public class TrainerOptions extends javax.swing.JFrame {
-
+TrainerRole trainer = new TrainerRole();
     /**
      * Creates new form TrainerOptions
      */
@@ -156,38 +158,38 @@ public class TrainerOptions extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void addMemberButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMemberButtonMouseClicked
-        new AddMemberPage();
-        this.dispose();
+        new AddMemberPage(trainer,this);
+        this.setVisible(false);
     }//GEN-LAST:event_addMemberButtonMouseClicked
 
     private void viewMembersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMembersButtonMouseClicked
-        new ViewMembersPage();
-        this.dispose();
+        new ViewMembersPage(trainer,this);
+        this.setVisible(false);
     }//GEN-LAST:event_viewMembersButtonMouseClicked
 
     private void addClassesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassesButtonMouseClicked
-        new AddClassPage();
-        this.dispose();
+        new AddClassPage(trainer,this);
+        this.setVisible(false);
     }//GEN-LAST:event_addClassesButtonMouseClicked
 
     private void viewClassesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewClassesButtonMouseClicked
-        new ViewClassesPage();
-        this.dispose();
+        new ViewClassesPage(trainer,this);
+        this.setVisible(false);
     }//GEN-LAST:event_viewClassesButtonMouseClicked
 
     private void registerMemberForClassButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMemberForClassButtonMouseClicked
-        new RegisterMemberForClassPage();
-        this.dispose();
+        new RegisterMemberForClassPage(trainer,this);
+        this.setVisible(false);
     }//GEN-LAST:event_registerMemberForClassButtonMouseClicked
 
     private void cancelRegistrationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelRegistrationButtonMouseClicked
         new CancelRegistrationPage();
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_cancelRegistrationButtonMouseClicked
 
     private void viewRegistrationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewRegistrationButtonMouseClicked
         new ViewRegistrationsPage();
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_viewRegistrationButtonMouseClicked
 
     /**
