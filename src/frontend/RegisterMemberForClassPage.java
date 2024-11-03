@@ -4,17 +4,32 @@
  */
 package frontend;
 
+import backend.TrainerRole;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Zaki
  */
 public class RegisterMemberForClassPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegisterMemberForClassPage
-     */
-    public RegisterMemberForClassPage() {
+    TrainerRole trainer;
+    TrainerOptions trainerOptions;
+    
+    
+    public RegisterMemberForClassPage () {
         initComponents();
+    }
+    
+    public RegisterMemberForClassPage(TrainerRole trainer, TrainerOptions trainerOptions) {
+        initComponents();
+        this.trainer = trainer;
+        this.trainerOptions = trainerOptions;
+        registrationDateField.setDate(new java.util.Date());
+        this.trainerOptions.setVisible(false);
         this.setVisible(true);
         this.setTitle("Register Member For Class");
         this.setLocationRelativeTo(null);
@@ -29,21 +44,133 @@ public class RegisterMemberForClassPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        memberIDLabel = new javax.swing.JLabel();
+        classIDLabel = new javax.swing.JLabel();
+        registrationDateLabel = new javax.swing.JLabel();
+        memberIDField = new javax.swing.JTextField();
+        classIDField = new javax.swing.JTextField();
+        registrationDateField = new com.toedter.calendar.JDateChooser();
+        registerButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        quitButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        memberIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberIDLabel.setText("Member ID: ");
+
+        classIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        classIDLabel.setText("Class ID: ");
+
+        registrationDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registrationDateLabel.setText("Registration Date: ");
+
+        registrationDateField.setDateFormatString("yyyy-MM-dd");
+
+        registerButton.setText("Register");
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerButtonMouseClicked(evt);
+            }
+        });
+
+        backButton.setText("Back");
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backButtonMouseClicked(evt);
+            }
+        });
+
+        quitButton.setText("Quit");
+        quitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(quitButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(memberIDLabel)
+                            .addComponent(classIDLabel)
+                            .addComponent(registrationDateLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(memberIDField)
+                            .addComponent(classIDField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(registrationDateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(registerButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(memberIDLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(memberIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(classIDLabel)
+                    .addComponent(classIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(registrationDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(registrationDateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(registerButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(quitButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
+        trainerOptions.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backButtonMouseClicked
+
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        System.exit(1);
+    }//GEN-LAST:event_quitButtonActionPerformed
+
+    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
+        if (classIDField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Class ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (memberIDField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Member ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(registrationDateField.getDate());
+            trainer.registerMemberForClass(memberIDField.getText(), classIDField.getText(), LocalDate.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
+            JOptionPane.showMessageDialog(null, "Member with ID: " + memberIDField.getText() + " has registered to class: " + classIDField.getText(), "Successful Registration", JOptionPane.PLAIN_MESSAGE);
+            trainerOptions.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_registerButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -81,5 +208,14 @@ public class RegisterMemberForClassPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JTextField classIDField;
+    private javax.swing.JLabel classIDLabel;
+    private javax.swing.JTextField memberIDField;
+    private javax.swing.JLabel memberIDLabel;
+    private javax.swing.JButton quitButton;
+    private javax.swing.JButton registerButton;
+    private com.toedter.calendar.JDateChooser registrationDateField;
+    private javax.swing.JLabel registrationDateLabel;
     // End of variables declaration//GEN-END:variables
 }
