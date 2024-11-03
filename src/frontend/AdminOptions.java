@@ -143,17 +143,17 @@ public class AdminOptions extends javax.swing.JFrame {
 
     private void addTrainerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTrainerButtonMouseClicked
         new AddTrainerPage(admin, this);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_addTrainerButtonMouseClicked
 
     private void removeTrainerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeTrainerButtonMouseClicked
-        new RemoveTrainerPage();
-        this.dispose();
+        new RemoveTrainerPage(admin,this);
+        this.setVisible(false);
     }//GEN-LAST:event_removeTrainerButtonMouseClicked
 
     private void viewTrainersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewTrainersButtonMouseClicked
-        new ViewTrainersPage();
-        this.dispose();
+        new ViewTrainersPage(admin, this);
+        this.setVisible(false);
     }//GEN-LAST:event_viewTrainersButtonMouseClicked
 
     /**
