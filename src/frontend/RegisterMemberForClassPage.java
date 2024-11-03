@@ -162,7 +162,16 @@ public class RegisterMemberForClassPage extends javax.swing.JFrame {
         else if (memberIDField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Member ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
-        else {
+        else if (trainer.getListOfRegistrations().stream().anyMatch(record -> record.getSearchKey().equals(memberIDField.getText() + classIDField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Registration with ID: " + memberIDField.getText()+classIDField.getText() + " already exists", "Error: Duplicated Data", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (trainer.getListOfMembers().stream().noneMatch(member -> member.getSearchKey().equals(memberIDField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Member with ID: " + memberIDField.getText() + " doesn't exist", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (trainer.getListOfClasses().stream().noneMatch(class_ -> class_.getSearchKey().equals(classIDField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Class with ID: " + classIDField.getText() + " doesn't exist", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+
+        } else {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(registrationDateField.getDate());
             trainer.registerMemberForClass(memberIDField.getText(), classIDField.getText(), LocalDate.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
