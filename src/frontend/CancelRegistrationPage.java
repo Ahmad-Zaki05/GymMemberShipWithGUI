@@ -4,6 +4,8 @@
  */
 package frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Zaki
@@ -29,21 +31,116 @@ public class CancelRegistrationPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backButton = new javax.swing.JButton();
+        quitButton = new javax.swing.JButton();
+        memberIDLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        memberIDField = new javax.swing.JTextField();
+        classIDField = new javax.swing.JTextField();
+        cancelRegistrationButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        backButton.setText("Back");
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backButtonMouseClicked(evt);
+            }
+        });
+
+        quitButton.setText("Quit");
+        quitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitButtonActionPerformed(evt);
+            }
+        });
+
+        memberIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberIDLabel.setText("Member ID: ");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Class ID: ");
+
+        cancelRegistrationButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cancelRegistrationButton.setText("Cancel Registration");
+        cancelRegistrationButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelRegistrationButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(memberIDLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(memberIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(classIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 24, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(quitButton)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(cancelRegistrationButton)
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(memberIDLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(memberIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(classIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(cancelRegistrationButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(quitButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
+        new TrainerOptions();
+        this.dispose();
+    }//GEN-LAST:event_backButtonMouseClicked
+
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        System.exit(1);
+    }//GEN-LAST:event_quitButtonActionPerformed
+
+    private void cancelRegistrationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelRegistrationButtonMouseClicked
+        if (memberIDField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Member ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (classIDField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Class ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+//        else {
+//            implement the logic
+//        }
+    }//GEN-LAST:event_cancelRegistrationButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -81,5 +178,12 @@ public class CancelRegistrationPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton cancelRegistrationButton;
+    private javax.swing.JTextField classIDField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField memberIDField;
+    private javax.swing.JLabel memberIDLabel;
+    private javax.swing.JButton quitButton;
     // End of variables declaration//GEN-END:variables
 }
