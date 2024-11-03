@@ -168,10 +168,7 @@ public class AddTrainerPage extends javax.swing.JFrame {
     private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
         if (idField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
-        }
-        else if (admin.getListOfTrainers().stream().anyMatch(record -> record.getSearchKey().equals(idField.getText()))) {
-            JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " already exists", "Error: Duplicated Data", JOptionPane.ERROR_MESSAGE);
-        }
+        }  
         else if (nameField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Name can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
         }
@@ -183,6 +180,9 @@ public class AddTrainerPage extends javax.swing.JFrame {
         }
         else if (phoneNumberField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Phone number can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (admin.getListOfTrainers().stream().anyMatch(record -> record.getSearchKey().equals(idField.getText()))) {
+            JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " already exists", "Error: Duplicated Data", JOptionPane.ERROR_MESSAGE);
         }
         else {
             JOptionPane.showMessageDialog(null, "Trainer with ID: " + idField.getText() + " has been added", "Successful Login", JOptionPane.PLAIN_MESSAGE);

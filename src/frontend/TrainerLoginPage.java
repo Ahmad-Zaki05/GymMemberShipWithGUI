@@ -147,7 +147,7 @@ public class TrainerLoginPage extends javax.swing.JFrame {
         }
         else if (usernameField.getText().equals(LoginCredentials.TRAINER_USERNAME) && passwordField.getText().equals(LoginCredentials.TRAINER_PASSWORD)) {
             JOptionPane.showMessageDialog(null, "Hello Trainer", "Successful Login", JOptionPane.PLAIN_MESSAGE);
-            //new TrainerOptions (); //add proper implementation for trainer options
+            new TrainerOptions ();
             this.dispose ();
         }
         else {
