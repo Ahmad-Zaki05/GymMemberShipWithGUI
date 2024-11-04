@@ -18,7 +18,7 @@ TrainerRole trainer = new TrainerRole();
     public TrainerOptions() {
         initComponents();
         this.setVisible(true);
-        this.setTitle("Trainer Options");
+        this.setTitle("Trainer Role");
         this.setLocationRelativeTo(null);
     }
 

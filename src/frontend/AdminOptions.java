@@ -19,7 +19,7 @@ public class AdminOptions extends javax.swing.JFrame {
     public AdminOptions() {
         initComponents();
         this.setVisible (true);
-        this.setTitle("Admin Options");
+        this.setTitle("Admin Role");
         this.setLocationRelativeTo(null);
     }
 

@@ -15,7 +15,7 @@ public class RoleSelection extends javax.swing.JFrame {
     public RoleSelection() {
         initComponents();
         this.setVisible (true);
-        this.setTitle("Role Selection");
+        this.setTitle("Gym System");
         this.setLocationRelativeTo(null);
     }
 
