@@ -161,8 +161,9 @@ public class RegisterMemberForClassPage extends javax.swing.JFrame {
         }
         else if (memberIDField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Member ID can't be empty!!", "Error: Data Missing", JOptionPane.ERROR_MESSAGE);
-        }
-        else if (trainer.getListOfRegistrations().stream().anyMatch(record -> record.getSearchKey().equals(memberIDField.getText() + classIDField.getText()))) {
+        } else if ((trainer.getListOfClasses().stream().anyMatch(class_ -> class_.getSearchKey().equals(classIDField.getText()) && (class_.getAvailableSeats() == 0)))) {
+            JOptionPane.showMessageDialog(null, "Class with ID: " + classIDField.getText() + " is full", "Error: No Available Seats", JOptionPane.ERROR_MESSAGE);
+        } else if (trainer.getListOfRegistrations().stream().anyMatch(record -> record.getSearchKey().equals(memberIDField.getText() + classIDField.getText()))) {
             JOptionPane.showMessageDialog(null, "Registration with ID: " + memberIDField.getText()+classIDField.getText() + " already exists", "Error: Duplicated Data", JOptionPane.ERROR_MESSAGE);
         }
         else if (trainer.getListOfMembers().stream().noneMatch(member -> member.getSearchKey().equals(memberIDField.getText()))) {
